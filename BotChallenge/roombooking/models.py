@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Room(models.Model):
     room_choices = (
-        ('H','Huddle Room'),
+        ('H', 'Huddle Room'),
         ('T', 'Team Room'),
         ('C', 'Conference Room'),
     )
@@ -21,6 +21,9 @@ class Room(models.Model):
     phone = models.BooleanField(blank=False, null=False)
     projector = models.BooleanField(blank=False, null=False)
     video_conferencing = models.BooleanField(blank=False, null=False)
+
+    def __str__(self):
+        return self.room_number
 
 
 class RoomStatus(models.Model):
